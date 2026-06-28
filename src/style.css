@@ -1,0 +1,197 @@
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f7fbff;
+  background: #0f1816;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  min-width: 320px;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  background: #0f1816;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.hud {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  z-index: 3;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.scoreboard,
+.roundline,
+.status,
+.restart {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(6, 11, 12, 0.72);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: minmax(48px, auto) 44px 12px 44px minmax(48px, auto);
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 7px 13px;
+  border-radius: 8px;
+}
+
+.team {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.team-blue {
+  color: #9ec5ff;
+}
+
+.team-red {
+  color: #ffada8;
+}
+
+.score,
+.score-dash {
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.score {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.score-dash {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.roundline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 174px;
+  min-height: 32px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 4;
+  min-width: 160px;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: #f8fbff;
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-align: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.status[hidden] {
+  display: none;
+}
+
+.restart {
+  position: fixed;
+  left: 50%;
+  bottom: 86px;
+  z-index: 5;
+  min-width: 136px;
+  min-height: 42px;
+  padding: 9px 15px;
+  border-radius: 8px;
+  color: #101413;
+  background: #f3d34f;
+  border-color: rgba(0, 0, 0, 0.18);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 900;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.restart:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.restart[hidden] {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .hud {
+    top: 10px;
+  }
+
+  .scoreboard {
+    grid-template-columns: minmax(40px, auto) 34px 10px 34px minmax(40px, auto);
+    gap: 7px;
+    min-height: 42px;
+    padding: 6px 9px;
+  }
+
+  .score {
+    font-size: 1.45rem;
+  }
+
+  .team {
+    font-size: 0.68rem;
+  }
+
+  .roundline {
+    min-width: 150px;
+    min-height: 30px;
+    font-size: 0.78rem;
+  }
+}
